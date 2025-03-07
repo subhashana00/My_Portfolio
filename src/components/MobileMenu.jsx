@@ -34,6 +34,24 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         About
       </a>
       <a
+        href="#skills"
+        onClick={() => setMenuOpen(false)}
+        className={`text-2xl md:text-3xl font-semibold text-white my-4 transform transition-transform duration-300 hover:text-gray-300 ${
+          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        }`}
+      >
+        Skills
+      </a>
+      <a
+        href="#experience"
+        onClick={() => setMenuOpen(false)}
+        className={`text-2xl md:text-3xl font-semibold text-white my-4 transform transition-transform duration-300 hover:text-gray-300 ${
+          menuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+        }`}
+      >
+        Experience
+      </a>
+      <a
         href="#projects"
         onClick={() => setMenuOpen(false)}
         className={`text-2xl md:text-3xl font-semibold text-white my-4 transform transition-transform duration-300 hover:text-gray-300 ${

@@ -54,6 +54,20 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </a>
             <a
+              href="#skills"
+              className="text-gray-300 hover:text-white transition-colors relative group"
+            >
+              Skills
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
+              href="#experience"
+              className="text-gray-300 hover:text-white transition-colors relative group"
+            >
+              Experience
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a
               href="#projects"
               className="text-gray-300 hover:text-white transition-colors relative group"
             >
