@@ -13,9 +13,9 @@ export const Projects = () => {
       description:
         "Developing a responsive Clothing E-commerce website using MERN stack, featuring account creation, product browsing, cart management, and secure checkout for users, and an admin panel for product and order management.",
       images: [
-        "/path-to-image1.jpg", // Replace with actual image paths
-        "/path-to-image2.jpg",
-        "/path-to-image3.jpg",
+        "../../assets/gallerycafe1.png", // Replace with actual image paths
+        "../../assets/gallerycafe1.png",
+        "/../../assets/gallerycafe1.png",
       ],
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       link: "#",
@@ -25,9 +25,9 @@ export const Projects = () => {
       description:
         "Developed a dynamic restaurant website with online table reservations, food ordering, and user registration. The admin panel includes tools for managing menus, reservations, and customer interactions, using MSSQL and Entity Framework for data storage.",
       images: [
-        "/path-to-image4.jpg", // Replace with actual image paths
-        "/path-to-image5.jpg",
-        "/path-to-image6.jpg",
+        "../../assets/gallerycafe1.png", // Replace with actual image paths
+        "../../assets/gallerycafe1.png",
+        "../../assets/gallerycafe1.png",
       ],
       technologies: ["ASP.NET MVC", "MSSQL", "Entity Framework"],
       link: "#",
@@ -37,9 +37,9 @@ export const Projects = () => {
       description:
         "Designed a mobile app UI for a coffee shop with features like user login, home screen, product categories, item details, cart, and delivery options, focused on a seamless user experience and intuitive navigation.",
       images: [
-        "/path-to-image7.jpg", // Replace with actual image paths
-        "/path-to-image8.jpg",
-        "/path-to-image9.jpg",
+        "../../assets/gallerycafe1.png", // Replace with actual image paths
+        "../../assets/gallerycafe1.png",
+        "../../assets/gallerycafe1.png",
       ],
       technologies: ["Figma"],
       link: "#",
@@ -49,9 +49,9 @@ export const Projects = () => {
       description:
         "Designed and developed a personal portfolio website to showcase my projects, skills, and experience. Built with React and Tailwind CSS.",
       images: [
-        "/path-to-image10.jpg", // Replace with actual image paths
-        "/path-to-image11.jpg",
-        "/path-to-image12.jpg",
+        "../../assets/gallerycafe1.png", // Replace with actual image paths
+        "../../assets/gallerycafe1.png",
+        "../../assets/gallerycafe1.png",
       ],
       technologies: ["React", "Tailwind CSS", "Figma"],
       link: "#",
@@ -62,7 +62,7 @@ export const Projects = () => {
     <section id="projects" className="min-h-screen flex items-center justify-center py-20 bg-gray-900 ">
       <RevealOnScroll>
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
             Featured Projects
           </h2>
 
