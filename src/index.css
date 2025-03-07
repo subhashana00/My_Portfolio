@@ -3,7 +3,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: poppins;
+  font-family: Poppins, sans-serif;
   background: #0a0a0a;
   color: #f3f4f6;
 }
@@ -20,19 +20,6 @@ html, body {
 
   .animate-blink {
     animation: blink 0.8s step-end infinite;
-  }
-
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(250%);
-    }
-  }
-
-  .animate-loading-bar {
-    animation: loading 0.8s ease infinite;
   }
 
   @keyframes gradientAnimation {
@@ -66,12 +53,13 @@ html, body {
 
 /* Avatar Styling */
 .avatar {
-  --avatar-size: 250px;
+  --avatar-size: 100%;
   height: var(--avatar-size);
   width: var(--avatar-size);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
+  will-change: transform, box-shadow;
   box-shadow: 0 0 20px rgba(66, 85, 212, 0.6);
   animation: float 6s ease-in-out infinite;
 }
@@ -89,7 +77,7 @@ html, body {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
 }
 
@@ -116,18 +104,20 @@ html, body {
   }
 }
 
-
-/* Blinking Cursor */
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.animate-blink {
-  animation: blink 0.8s step-end infinite;
+@keyframes spin-reverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 6s linear infinite;
 }
