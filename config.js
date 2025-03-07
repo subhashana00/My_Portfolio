@@ -7,4 +7,4 @@ export const socialLinks = [
   { href: "https://behance.net/your-profile", icon: FaBehance, label: "Behance" },
 ];
 
-export const resumeLink = "../my_portfolio/src/assets/Prabhath_Resume.pdf";
+export const resumeLink = "https://drive.google.com/file/d/1A7Xo20iAH-mYvA5jtODglZiWUrg42LwG/view?usp=drive_link";
