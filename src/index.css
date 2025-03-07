@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: Poppins, sans-serif;
@@ -10,7 +11,8 @@ html, body {
 
 @layer utilities {
   @keyframes blink {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     50% {
@@ -37,6 +39,96 @@ html, body {
   .animate-gradient-bg {
     background-size: 200% 200%;
     animation: gradientAnimation 6s ease infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes glow {
+    0%,
+    100% {
+      box-shadow: inset 0 0 20px rgba(66, 85, 212, 0.6);
+    }
+    50% {
+      box-shadow: inset 0 0 40px rgba(66, 85, 212, 0.8);
+    }
+  }
+
+  @keyframes spin-slow {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 6s linear infinite;
+  }
+
+  .animate-spin-reverse {
+    animation: spin-reverse 6s linear infinite;
+  }
+
+  /* Glassmorphism Effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Icon Hover Animation */
+  @keyframes iconHover {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .group:hover .icon-hover {
+    animation: iconHover 0.5s ease;
+  }
+
+  /* Background Animation for About Section */
+  @keyframes vawe {
+    20% {
+      border-radius: 45% 55% 62% 38% / 53% 51% 49% 47%;
+    }
+    40% {
+      border-radius: 45% 55% 49% 51% / 36% 51% 49% 64%;
+    }
+    60% {
+      border-radius: 60% 40% 57% 43% / 47% 62% 38% 53%;
+    }
+    80% {
+      border-radius: 60% 40% 32% 68% / 38% 36% 64% 62%;
+    }
+  }
+
+  .animate-vawe {
+    animation: vawe 5s linear infinite;
   }
 }
 
@@ -71,16 +163,6 @@ html, body {
   border-radius: 50%;
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
 /* Glow Effect */
 .avatar::before {
   content: "";
@@ -94,69 +176,136 @@ html, body {
   animation: glow 3s ease-in-out infinite;
 }
 
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: inset 0 0 20px rgba(66, 85, 212, 0.6);
-  }
-  50% {
-    box-shadow: inset 0 0 40px rgba(66, 85, 212, 0.8);
-  }
+/* Background Animation for About Section */
+.about {
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes spin-slow {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.about .background-animation {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
-@keyframes spin-reverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
+.about .background-animation .wave {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(45deg, #ab49de, #5b41f2);
+  border-radius: 54% 46% 42% 58% / 60% 58% 42% 40%;
+  animation: vawe 5s linear infinite;
 }
 
-.animate-spin-slow {
-  animation: spin-slow 6s linear infinite;
+.about .background-animation .wave-1 {
+  top: -10%;
+  right: -10%;
 }
 
-.animate-spin-reverse {
-  animation: spin-reverse 6s linear infinite;
+.about .background-animation .wave-2 {
+  bottom: -10%;
+  left: -15%;
 }
 
-@layer utilities {
-  /* Glassmorphism Effect */
-  .glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+.about .background-animation .dots {
+  position: absolute;
+  inset: 0;
+}
 
-  /* Gradient Animation */
-  @keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+.about .background-animation .dots span {
+  position: absolute;
+  background: linear-gradient(45deg, #ab49de, #5b41f2);
+  border-radius: 38% 62% 55% 45% / 32% 53% 47% 68%;
+  animation: vawe 7s linear infinite;
+}
 
-  /* Icon Hover Animation */
-  @keyframes iconHover {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+.about .background-animation .dots span:nth-child(1) {
+  top: 10%;
+  left: calc(100% - 360px);
+  width: 75px;
+  height: 75px;
+}
 
-  .group:hover .icon-hover {
-    animation: iconHover 0.5s ease;
-  }
+.about .background-animation .dots span:nth-child(2) {
+  top: 15px;
+  left: 180px;
+  width: 50px;
+  height: 50px;
+  border-radius: 38% 62% 33% 67% / 60% 53% 47% 40%;
+  transform: rotate(90deg);
+}
+
+.about .background-animation .dots span:nth-child(3) {
+  right: 180px;
+  bottom: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+}
+
+.about .background-animation .dots span:nth-child(4) {
+  bottom: 50px;
+  left: 240px;
+  width: 20px;
+  height: 20px;
+  border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+}
+
+.about .background-animation .dots span:nth-child(5) {
+  right: 280px;
+  bottom: 80px;
+  width: 25px;
+  height: 25px;
+  border-radius: 38% 62% 55% 45% / 52% 53% 47% 48%;
+}
+
+.about .background-animation .dots span:nth-child(6) {
+  top: 6%;
+  left: calc(100% - 400px);
+  width: 25px;
+  height: 25px;
+}
+
+/* Button Border Slide Animation */
+.btn-border-slide {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  border: 2px solid transparent;
+  transition: all 0.8s ease;
+}
+
+.btn-border-slide::before,
+.btn-border-slide::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #3b82f6; /* Blue-500 */
+  transition: all 0.8s ease;
+}
+
+.btn-border-slide::before {
+  top: 0;
+  left: 0;
+}
+
+.btn-border-slide::after {
+  bottom: 0;
+  right: 0;
+}
+
+.btn-border-slide:hover::before,
+.btn-border-slide:hover::after {
+  width: 100%;
+}
+
+.btn-border-slide span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-border-slide:hover {
+  background: #3b82f6; /* Blue-500 */
+  color: white;
 }

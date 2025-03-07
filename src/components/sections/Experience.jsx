@@ -32,7 +32,7 @@ export const Experience = () => {
     <section id="experience" className="min-h-screen flex items-center justify-center py-12 sm:py-20 bg-gray-100/5">
       <RevealOnScroll>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
             Experience
           </h2>
 
