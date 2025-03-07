@@ -50,7 +50,7 @@ export const Home = () => {
         <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center justify-between">
           {/* Left Side: Content */}
           <div className="text-center lg:text-left lg:w-1/2 z-10">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight animate-gradient-bg">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent leading-tight animate-gradient-bg">
               Hi, I'm Prabhath
               <br />
               <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium text-gray-400 font-mono">
