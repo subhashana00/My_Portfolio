@@ -63,3 +63,13 @@ html, body {
   opacity: 1;
   transform: translateY(0);
 }
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card p {
+  flex-grow: 1;
+}

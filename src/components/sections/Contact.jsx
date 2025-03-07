@@ -9,23 +9,27 @@ export const Contact = () => {
         message: "",
     });
 
+    const SERVICE_ID = "service_o4t2jbe";
+    const TEMPLATE_ID = "template_3w9nmqj";
+    const PUBLIC_KEY = "JjZ4RiVAm-flMX0_n";
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        emailjs.sendForm(
-            import.meta.env.VITE_SERVICE_ID, 
-            import.meta.env.VITE_TEMPLATE_ID, 
-            e.target, 
-            import.meta.env.VITE_PUBLIC_KEY
-        ).then((result) => {
-            alert("Message Sent!");
-            setFormData({
-                name: "",
-                email: "",
-                message: "",
+        console.log("Form Data:", formData); // Log form data for debugging
+
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+            .then((result) => {
+                alert("Message Sent!");
+                setFormData({
+                    name: "",
+                    email: "",
+                    message: "",
+                });
+            })
+            .catch((error) => {
+                console.error("EmailJS Error:", error); // Log the error for debugging
+                alert("Oops! Something went wrong. Please try again.");
             });
-        }).catch(() => {
-            alert("Oops! Something went wrong. Please try again.");
-        });
     };
 
     const handleChange = (e) => {
@@ -54,7 +58,7 @@ export const Contact = () => {
                                 value={formData.name}
                                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                                 placeholder="Name..."
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+                                onChange={handleChange} // Use onChange instead of onClick
                             />
                         </div>
 
@@ -68,7 +72,7 @@ export const Contact = () => {
                                 value={formData.email}
                                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                                 placeholder="example@gmail.com"
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                onChange={handleChange} // Use onChange instead of onClick
                             />
                         </div>
 
@@ -82,7 +86,7 @@ export const Contact = () => {
                                 value={formData.message}
                                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                                 placeholder="Your Message..."
-                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                onChange={handleChange} // Use onChange instead of onClick
                             />
                         </div>
 
