@@ -11,20 +11,20 @@ export const Experience = () => {
         "Assisted the National Medicines Regulatory Authority (NMRA) with drug licensing, approval, and document submission, ensuring compliance with regulations. Supported the Regulatory Department as an IT assistant, streamlining workflows through technical solutions.",
     },
     {
-      period: "Jan 2021 – Jul 2022",
-      title: "Junior Software Developer",
-      company: "Tech Solutions Ltd",
-      location: "Kandy, Sri Lanka",
-      description:
-        "Developed and maintained web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-    },
-    {
-      period: "Jun 2019 – Dec 2020",
-      title: "UI/UX Designer Intern",
-      company: "Design Studio",
-      location: "Galle, Sri Lanka",
+      period: "Jan 2025 – Present",
+      title: "UI/UX Designer",
+      company: "Fiverr",
+      location: "Sri Lanka",
       description:
         "Designed user interfaces and prototypes for web and mobile applications. Conducted user research and usability testing to improve product designs.",
+    },
+    {
+      period: "Jan 2025 – Present",
+      title: "Frontend Developer Intern",
+      company: "StarLit Global",
+      location: "Remote, Sri Lanka",
+      description:
+        "Developed responsive web applications using React, HTML, CSS, and JavaScript. Collaborated with the design team to implement user interfaces and improve user experience.",
     },
   ];
 
@@ -36,46 +36,71 @@ export const Experience = () => {
             Experience
           </h2>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 w-0.5 h-full bg-gray-700 transform -translate-x-1/2"></div>
+          {/* Mobile View: Column Layout */}
+          <div className="block sm:hidden space-y-8">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="p-6 rounded-lg bg-blue-500/10 border-l-4 border-blue-500 hover:-translate-y-1 transition-all"
+              >
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-blue-500">
+                    {exp.title}
+                  </h3>
+                  <h4 className="text-lg font-semibold text-gray-300">
+                    {exp.company}
+                  </h4>
+                  <p className="text-sm text-gray-400">{exp.location}</p>
+                  <p className="text-sm text-gray-400">{exp.period}</p>
+                  <p className="text-gray-300">{exp.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-            {/* Experience Items */}
-            <div className="space-y-8">
-              {experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  className={`flex ${
-                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
-                  } items-center justify-between w-full`}
-                >
-                  {/* Timeline Dot */}
-                  <div className="relative w-6 h-6 bg-purple-500 rounded-full z-10">
-                    <div className="absolute inset-0 bg-purple-500 rounded-full animate-ping"></div>
-                  </div>
+          {/* Desktop View: Timeline Layout */}
+          <div className="hidden sm:block">
+            <div className="relative">
+              {/* Timeline Line */}
+              <div className="absolute left-1/2 w-0.5 h-full bg-gray-700 transform -translate-x-1/2"></div>
 
-                  {/* Experience Content */}
+              {/* Experience Items */}
+              <div className="space-y-8">
+                {experiences.map((exp, index) => (
                   <div
-                    className={`w-[45%] p-6 rounded-lg ${
-                      index % 2 === 0
-                        ? "bg-blue-500/10 border-l-4 border-blue-500"
-                        : "bg-purple-500/10 border-r-4 border-purple-500"
-                    } hover:-translate-y-1 transition-all`}
+                    key={index}
+                    className={`flex ${
+                      index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                    } items-center justify-between w-full`}
                   >
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-bold text-blue-500">
-                        {exp.title}
-                      </h3>
-                      <h4 className="text-lg font-semibold text-gray-300">
-                        {exp.company}
-                      </h4>
-                      <p className="text-sm text-gray-400">{exp.location}</p>
-                      <p className="text-sm text-gray-400">{exp.period}</p>
-                      <p className="text-gray-300">{exp.description}</p>
+                    {/* Timeline Dot */}
+                    <div className="relative w-6 h-6 bg-purple-500 rounded-full z-10">
+                      <div className="absolute inset-0 bg-purple-500 rounded-full animate-ping"></div>
+                    </div>
+
+                    {/* Experience Content */}
+                    <div
+                      className={`w-[45%] p-6 rounded-lg ${
+                        index % 2 === 0
+                          ? "bg-blue-500/10 border-l-4 border-blue-500"
+                          : "bg-purple-500/10 border-r-4 border-purple-500"
+                      } hover:-translate-y-1 transition-all`}
+                    >
+                      <div className="space-y-2">
+                        <h3 className="text-xl font-bold text-blue-500">
+                          {exp.title}
+                        </h3>
+                        <h4 className="text-lg font-semibold text-gray-300">
+                          {exp.company}
+                        </h4>
+                        <p className="text-sm text-gray-400">{exp.location}</p>
+                        <p className="text-sm text-gray-400">{exp.period}</p>
+                        <p className="text-gray-300">{exp.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

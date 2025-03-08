@@ -360,3 +360,58 @@ body {
   width: 30px;
   height: 30px;
 }
+
+/* Custom Button Styles for Contact Component */
+.contact-btn {
+  color: white;
+  border: 1px solid white;
+  padding: 12px 120px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.contact-btn::before,
+.contact-btn::after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease;
+}
+
+.contact-btn::before {
+  background-color: rgb(103, 128, 209);
+  transform: translateX(-100%);
+}
+
+.contact-btn::after {
+  background-color: #aa5ddd;
+  transform: translateX(100%);
+}
+
+.contact-btn:hover::before {
+  transform: translateX(0);
+}
+
+.contact-btn:hover::after {
+  transform: translateX(0);
+}
+
+.contact-btn:hover {
+  color: white;
+}

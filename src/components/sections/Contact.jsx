@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "emailjs-com";
-import { FaFacebook, FaDribbble, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import contactImage from "../../assets/5124556.jpg"; // Import your image
+import toast from 'react-hot-toast';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,12 +17,18 @@ export const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData); // Log form data for debugging
+    console.log("Form submitted!");
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
       .then((result) => {
-        alert("Message Sent!");
+        console.log("Email sent successfully:", result);
+        toast.success("Message Sent!", {
+          style: {
+            background: '#9333ea', 
+            color: '#fff', 
+          },
+        });
         setFormData({
           name: "",
           email: "",
@@ -29,8 +36,13 @@ export const Contact = () => {
         });
       })
       .catch((error) => {
-        console.error("EmailJS Error:", error); // Log the error for debugging
-        alert("Oops! Something went wrong. Please try again.");
+        console.error("EmailJS Error:", error);
+        toast.error("Oops! Something went wrong. Please try again.", {
+          style: {
+            background: '#FF5252', 
+            color: '#fff', 
+          },
+        });
       });
   };
 
@@ -43,16 +55,27 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center py-12 sm:py-20">
+    <section
+      id="contact"
+      className="min-h-screen flex items-center justify-center py-12 sm:py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${contactImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Blurred Overlay */}
+      <div className="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+
       <RevealOnScroll>
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
             Contact Me
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
             {/* Left Side: Contact Form */}
-            <div className="bg-white/5 p-6 sm:p-8 rounded-lg border border-white/10">
+            <div className="bg-white/5 p-6 sm:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div className="form-group">
@@ -92,66 +115,13 @@ export const Contact = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
-                  <button
-                    type="submit"
-                    className="btn-border-slide w-full bg-blue-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden"
-                  >
-                    Submit
+                {/* Centered Button */}
+                <div className="form-group flex justify-center">
+                  <button type="submit" className="contact-btn">
+                    <span>Submit</span>
                   </button>
                 </div>
               </form>
-            </div>
-
-            {/* Right Side: Contact Information */}
-            <div className="bg-white/5 p-6 sm:p-8 rounded-lg border border-white/10">
-              <div className="contact-add-head">
-                <h3 className="text-2xl font-bold text-blue-400">Prabhath Subhashana</h3>
-                <p className="text-gray-400 text-sm sm:text-base mt-2">UI/UX Designer & Developer</p>
-              </div>
-              <div className="contact-add-info mt-8">
-                <div className="single-contact-add-info">
-                  <h3 className="text-gray-400 font-medium">Phone</h3>
-                  <p className="text-gray-300 text-sm sm:text-base mt-2">+94 77 123 4567</p>
-                </div>
-                <div className="single-contact-add-info mt-6">
-                  <h3 className="text-gray-400 font-medium">Email</h3>
-                  <p className="text-gray-300 text-sm sm:text-base mt-2">prabhath@example.com</p>
-                </div>
-                <div className="single-contact-add-info mt-6">
-                  <h3 className="text-gray-400 font-medium">Website</h3>
-                  <p className="text-gray-300 text-sm sm:text-base mt-2">www.prabhath.com</p>
-                </div>
-              </div>
-              <div className="hm-foot-icon mt-8">
-                <ul className="flex space-x-4">
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                      <FaFacebook className="text-xl" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                      <FaDribbble className="text-xl" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                      <FaTwitter className="text-xl" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                      <FaLinkedin className="text-xl" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="text-gray-400 hover:text-blue-500 transition-colors">
-                      <FaInstagram className="text-xl" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>

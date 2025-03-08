@@ -23,7 +23,7 @@ export const About = () => {
 
       <RevealOnScroll>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg text-center">
+          <h2 className="text-4xl font-bold mb-8 bg-gradient-to-r from-blue-200 to-blue-600 bg-clip-text text-transparent animate-gradient-bg text-center">
             About Me
           </h2>
 
@@ -51,7 +51,7 @@ export const About = () => {
 
               {/* Education Card */}
               <div className="glass rounded-xl p-6 sm:p-8 border border-white/10 hover:border-purple-500/50 hover:shadow-[0_4px_20px_rgba(147,51,234,0.2)] transition-all duration-300">
-                <h3 className="text-xl font-bold mb-4 text-purple-500">Education</h3>
+                <h3 className="text-xl font-bold mb-4 text-blue-400">Education</h3>
                 <ul className="list-disc list-inside text-gray-300 space-y-2 text-sm sm:text-base">
                   <li>
                     <strong>BSc (Hons) Software Engineering</strong> - ICBT Campus (Awarded by Cardiff Metropolitan University) - Expected Completion: Aug 2027
