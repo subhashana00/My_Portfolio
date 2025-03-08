@@ -1,4 +1,4 @@
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaBehance } from "react-icons/fa";
 
 export const Footer = () => {
   return (
@@ -56,7 +56,7 @@ export const Footer = () => {
             </h3>
             <div className="flex space-x-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/1AwpAQesRR/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -64,7 +64,7 @@ export const Footer = () => {
                 <FaFacebook className="text-2xl" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://x.com/PrabhathSu39413"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -72,7 +72,7 @@ export const Footer = () => {
                 <FaTwitter className="text-2xl" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/prabhath-subhashana-6b694a20a"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -80,7 +80,7 @@ export const Footer = () => {
                 <FaLinkedin className="text-2xl" />
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/subhashana00"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
@@ -88,12 +88,12 @@ export const Footer = () => {
                 <FaGithub className="text-2xl" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://behance.net/prabathsubasha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-500 transition-colors"
               >
-                <FaInstagram className="text-2xl" />
+                <FaBehance className="text-2xl" />
               </a>
             </div>
           </div>

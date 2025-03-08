@@ -15,8 +15,8 @@ export const RevealOnScroll = ({ children }) => {
         });
       },
       { 
-        threshold: 0.2, // Trigger when 20% of the element is visible
-        rootMargin: "0px 0px -50px 0px" // Adjust the root margin for better control
+        threshold: 0.2, 
+        rootMargin: "0px 0px -50px 0px" 
       }
     );
 

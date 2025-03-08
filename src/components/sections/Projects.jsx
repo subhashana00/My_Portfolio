@@ -5,15 +5,39 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Autoplay } from "swiper/modules";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion"; 
 
-// Import images from assets
+
 import gallerycafe1 from "../../assets/gallerycafe1.png";
 import gallerycafe2 from "../../assets/gallerycafe2.png";
 import gallerycafe3 from "../../assets/gallerycafe3.png";
 
+import coffee1 from "../../assets/coffee1.jpg";
+import coffee2 from "../../assets/coffee2.jpg";
+import coffee3 from "../../assets/coffee3.jpg";
+
+import shoeapp1 from "../../assets/shoeapp1.jpg";
+import shoeapp2 from "../../assets/shoeapp2.jpg";
+import shoeapp3 from "../../assets/shoeapp3.jpg";
+
+import gaming1 from "../../assets/gaming1.jpg";
+import gaming2 from "../../assets/gaming2.jpg";
+import gaming3 from "../../assets/gaming3.jpg";
+
+import chairs1 from "../../assets/chairs1.jpg";
+import chairs2 from "../../assets/chairs2.jpg";
+import chairs3 from "../../assets/chairs3.jpg";
+
+import vton1 from "../../assets/vton1.png";
+import vton2 from "../../assets/vton2.png";
+import vton3 from "../../assets/vton3.png";
+
+
+
 export const Projects = () => {
-  const [filter, setFilter] = useState("*"); // Default filter: show all
+  const [filter, setFilter] = useState("*"); 
+  const [selectedProject, setSelectedProject] = useState(null); 
 
   const projects = [
     {
@@ -22,11 +46,7 @@ export const Projects = () => {
       category: "filter-web",
       description:
         "Developing a responsive Clothing E-commerce website using MERN stack, featuring account creation, product browsing, cart management, and secure checkout for users, and an admin panel for product and order management.",
-      images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-      ],
+        images: [vton1, vton2, vton3],
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       link: "#",
     },
@@ -36,7 +56,7 @@ export const Projects = () => {
       category: "filter-web",
       description:
         "Developed a dynamic restaurant website with online table reservations, food ordering, and user registration. The admin panel includes tools for managing menus, reservations, and customer interactions, using MSSQL and Entity Framework for data storage.",
-      images: [gallerycafe1, gallerycafe2, gallerycafe3], // Use imported images
+      images: [gallerycafe1, gallerycafe2, gallerycafe3], 
       technologies: ["ASP.NET MVC", "MSSQL", "Entity Framework"],
       link: "#",
     },
@@ -46,54 +66,38 @@ export const Projects = () => {
       category: "filter-uiux",
       description:
         "Designed a mobile app UI for a coffee shop with features like user login, home screen, product categories, item details, cart, and delivery options, focused on a seamless user experience and intuitive navigation.",
-      images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-      ],
+        images: [coffee1, coffee2, coffee3],
       technologies: ["Figma"],
       link: "#",
     },
     {
       id: 4,
-      title: "Portfolio Website",
-      category: "filter-web",
+      title: "Shoe Store App UI Design",
+      category: "filter-uiux",
       description:
-        "Designed and developed a personal portfolio website to showcase my projects, skills, and experience. Built with React and Tailwind CSS.",
-      images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-      ],
-      technologies: ["React", "Tailwind CSS", "Figma"],
+        "Designed a mobile app UI for a shoe store focusing on a clean and modern design with a user-friendly interface.",
+        images: [shoeapp1, shoeapp2, shoeapp3],
+        technologies: ["Figma"],
       link: "#",
     },
     {
       id: 5,
-      title: "Task Management App",
-      category: "filter-app",
+      title: "Gaming App UI Design",
+      category: "filter-uiux",
       description:
-        "Developed a task management app with features like task creation, deadlines, and progress tracking. Built with React Native and Firebase.",
-      images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-      ],
-      technologies: ["React Native", "Firebase"],
+        "Designed a mobile app UI for a gaming platform with features like user profile, game library, leaderboards, focusing on a visually appealing design and engaging user experience.",
+        images: [gaming1, gaming2, gaming3],
+        technologies: ["Figma"],
       link: "#",
     },
     {
       id: 6,
-      title: "E-Learning Platform",
-      category: "filter-web",
+      title: "Chairs E-commerce Mobile App UI Design",
+      category: "filter-uiux",
       description:
-        "Created an e-learning platform with course management, user progress tracking, and payment integration. Built with Django and React.",
-      images: [
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-        "https://via.placeholder.com/600x400",
-      ],
-      technologies: ["Django", "React", "PostgreSQL"],
+        "Designed a mobile app UI for an e-commerce platform selling chairs, focusing on a minimalist design with a focus on product images and details.",
+        images: [chairs1, chairs2, chairs3],
+      technologies: ["Figma"],
       link: "#",
     },
   ];
@@ -102,6 +106,16 @@ export const Projects = () => {
     filter === "*"
       ? projects
       : projects.filter((project) => project.category === filter);
+
+  // Function to open the modal with the selected project
+  const openModal = (project) => {
+    setSelectedProject(project);
+  };
+
+  // Function to close the modal
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
 
   return (
     <section id="projects" className="portfolio section py-12 sm:py-20 bg-gray-900">
@@ -162,7 +176,7 @@ export const Projects = () => {
             </li>
           </ul>
 
-          {/* Portfolio Items */}
+          {/* Project Items */}
           <div className="mt-8 sm:mt-12" data-aos="fade-up" data-aos-delay="200">
             {/* Swiper Carousel for Mobile */}
             <div className="block sm:hidden">
@@ -179,7 +193,10 @@ export const Projects = () => {
               >
                 {filteredProjects.map((project) => (
                   <SwiperSlide key={project.id}>
-                    <div className="portfolio-item relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+                    <div
+                      className="portfolio-item relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                      onClick={() => openModal(project)}
+                    >
                       {/* Nested Swiper for Images */}
                       <Swiper
                         modules={[Autoplay]}
@@ -220,16 +237,6 @@ export const Projects = () => {
                             </span>
                           ))}
                         </div>
-
-                        {/* View Project Link */}
-                        <div className="mt-4">
-                          <a
-                            href={project.link}
-                            className="text-blue-400 hover:text-blue-300 transition-colors text-sm"
-                          >
-                            View Project
-                          </a>
-                        </div>
                       </div>
                     </div>
                   </SwiperSlide>
@@ -250,7 +257,8 @@ export const Projects = () => {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className="portfolio-item relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+                  className="portfolio-item relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                  onClick={() => openModal(project)}
                 >
                   {/* Nested Swiper for Images */}
                   <Swiper
@@ -292,16 +300,6 @@ export const Projects = () => {
                         </span>
                       ))}
                     </div>
-
-                    {/* View Project Link */}
-                    <div className="mt-4">
-                      <a
-                        href={project.link}
-                        className="text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
-                      >
-                        View Project
-                      </a>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -309,6 +307,90 @@ export const Projects = () => {
           </div>
         </div>
       </RevealOnScroll>
+
+      {/* Modal for Project Details with Framer Motion */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-gray-900 rounded-lg shadow-lg max-w-4xl w-full mx-4 p-6 relative"
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeModal}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+              >
+                <FaTimes className="text-2xl" />
+              </button>
+
+              {/* Modal Content */}
+              <div className="space-y-6">
+                {/* Project Title */}
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  {selectedProject.title}
+                </h3>
+
+                {/* Project Images */}
+                <Swiper
+                  modules={[Autoplay]}
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  autoplay={{ delay: 3000, disableOnInteraction: false }}
+                  loop={true}
+                  className="rounded-lg overflow-hidden"
+                >
+                  {selectedProject.images.map((image, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={image}
+                        alt={`${selectedProject.title} Image ${i + 1}`}
+                        className="w-full h-64 sm:h-96 object-cover"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                {/* Project Description */}
+                <p className="text-gray-400 text-sm sm:text-base">
+                  {selectedProject.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.technologies.map((tech, key) => (
+                    <span
+                      key={key}
+                      className="bg-blue-500/10 text-blue-500 py-1 px-2 sm:px-3 rounded-full text-xs sm:text-sm hover:bg-blue-500/20 hover:shadow-md transition-all"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* View Project Link */}
+                <div className="mt-4">
+                  <a
+                    href={selectedProject.link}
+                    className="text-blue-400 hover:text-blue-300 transition-colors text-sm sm:text-base"
+                  >
+                    View Project
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

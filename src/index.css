@@ -361,11 +361,11 @@ body {
   height: 30px;
 }
 
-/* Custom Button Styles for Contact Component */
+
 .contact-btn {
   color: white;
   border: 1px solid white;
-  padding: 12px 120px;
+  padding: 12px 40px; 
   text-transform: uppercase;
   letter-spacing: 4px;
   position: relative;
@@ -373,8 +373,12 @@ body {
   cursor: pointer;
   background: transparent;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 12px; 
   transition: all 0.3s ease;
+  width: 100%; 
+  max-width: 300px; 
+  margin: 0 auto; 
+  display: block; 
 }
 
 .contact-btn span {
@@ -414,4 +418,37 @@ body {
 
 .contact-btn:hover {
   color: white;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 640px) {
+  .contact-btn {
+    padding: 12px 60px; /* Increase padding on medium screens */
+    font-size: 12px; /* Increase font size on medium screens */
+    max-width: 350px; /* Slightly larger max-width for tablets */
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-btn {
+    padding: 12px 80px; /* Further increase padding on larger screens */
+    font-size: 14px; /* Further increase font size on larger screens */
+    max-width: 400px; /* Larger max-width for desktops */
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-btn {
+    padding: 12px 100px; /* Maximum padding on extra-large screens */
+    font-size: 16px; /* Maximum font size on extra-large screens */
+    max-width: 450px; /* Even larger max-width for wide desktops */
+  }
+}
+
+@media (min-width: 1280px) {
+  .contact-btn {
+    padding: 12px 120px; /* Extra padding for very wide screens */
+    font-size: 18px; /* Extra font size for very wide screens */
+    max-width: 500px; /* Maximum width for very wide screens */
+  }
 }

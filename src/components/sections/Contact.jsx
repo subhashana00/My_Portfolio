@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { RevealOnScroll } from "../RevealOnScroll";
 import emailjs from "emailjs-com";
-import contactImage from "../../assets/5124556.jpg"; // Import your image
-import toast from 'react-hot-toast';
+import contactImage from "../../assets/5124556.jpg"; 
+import toast from "react-hot-toast";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,8 +25,8 @@ export const Contact = () => {
         console.log("Email sent successfully:", result);
         toast.success("Message Sent!", {
           style: {
-            background: '#9333ea', 
-            color: '#fff', 
+            background: "#9333ea",
+            color: "#fff",
           },
         });
         setFormData({
@@ -39,8 +39,8 @@ export const Contact = () => {
         console.error("EmailJS Error:", error);
         toast.error("Oops! Something went wrong. Please try again.", {
           style: {
-            background: '#FF5252', 
-            color: '#fff', 
+            background: "#FF5252",
+            color: "#fff",
           },
         });
       });
@@ -115,7 +115,6 @@ export const Contact = () => {
                     onChange={handleChange}
                   />
                 </div>
-                {/* Centered Button */}
                 <div className="form-group flex justify-center">
                   <button type="submit" className="contact-btn">
                     <span>Submit</span>
