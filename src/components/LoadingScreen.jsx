@@ -30,11 +30,6 @@ export const LoadingScreen = ({ onComplete }) => {
         <span className="animate-blink ml-1"> </span>
       </div>
 
-      {/* Progress Bar */}
-      <div className="w-[200px] sm:w-[300px] h-[4px] bg-gray-800 rounded-full relative overflow-hidden">
-        <div className="w-full h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] animate-loading-bar"></div>
-      </div>
-
       {/* Additional Animation (Optional) */}
       <div className="mt-8 flex space-x-2">
         {[1, 2, 3].map((item) => (

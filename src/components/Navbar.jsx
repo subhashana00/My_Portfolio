@@ -10,8 +10,14 @@ export const Navbar = ({ menuOpen, setMenuOpen }) => {
       <div className="max-w-5xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <a href="#home" className="font-poppins text-xl font-bold text-white hover:text-blue-500 transition-colors">
-            prabhath<span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg">.subhashana</span>
+          <a
+            href="#home"
+            className="font-poppins text-xl font-bold text-white hover:text-blue-500 transition-colors"
+          >
+            prabhath
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient-bg">
+              .subhashana
+            </span>
           </a>
 
           {/* Hamburger Menu (Mobile) */}
